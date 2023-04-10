@@ -53,3 +53,26 @@ plt.ylabel('Price / $/MWh')
 plt.xlabel('% of days with >xhrs below price')
 plt.plot([0,1],[183.5,183.5],'k--')
 plt.legend(['1','2','3','4','5','6','Mercury'])
+
+
+# time based limits
+
+grouped = df.groupby(pd.Grouper(key='date', freq='D')) # group by calendar day
+
+# define a function to find the average of the lowest 6 prices in each group
+def avg_of_lowest(x):
+    lowest = x.nsmallest(6, 'price')
+    return lowest['price'].mean()
+
+def max_of_lowest(x):
+    lowest = x.nsmallest(6, 'price')
+    return lowest['price'].max()
+
+result_av = grouped.apply(avg_of_lowest) # apply the function to each group
+result_max = grouped.apply(max_of_lowest) # apply the function to each group
+
+res_max_smooth = savgol_filter(result_max.to_numpy(),120,3)
+plt.plot(result_max)
+plt.plot(result_max.index, res_max_smooth)
+plt.ylabel('Price / $/MWh')
+
