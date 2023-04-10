@@ -45,3 +45,10 @@ This gives an average price of 64.166 $/MWh
 
 And 0 days without a full charge!
 ![](simple2_periods_active.png)
+
+Time for some new metrics then.
+If we assume the cylinder has an upper element with a 60°C setpoint we can go days without charging although customer satisfaction will drop
+So we can remove the 'must charge within 24 hours restrictions'
+The simple < 100 $/MWh is a bit coarse
+
+
