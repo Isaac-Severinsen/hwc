@@ -76,3 +76,37 @@ plt.plot(result_max)
 plt.plot(result_max.index, res_max_smooth)
 plt.ylabel('Price / $/MWh')
 
+# Lowest 6 prices in 24 hours
+
+boool = []
+for i in range(len(df)):
+    if i < 48:
+        boool.append(True)
+    else:
+        price_current = df.iloc[i]
+        df_day = df.iloc[i-48:i]
+        N_less = (price_current < df_day).sum().to_numpy()
+        # print(N_less)
+        if N_less < 7:
+            boool.append(True)
+        else:
+            boool.append(False)
+df['bool'] = boool
+
+df_daily_sum = df.resample('D').sum()
+df2 = df.copy()
+df2['TWP'] = df2['bool']*df2['price']
+
+df_daily_av = df2.resample('D').mean()
+df_daily = df_daily_sum.copy()
+df_daily['price'] = df_daily_av['TWP']
+
+plt.plot(df_daily['price'])
+plt.ylabel('$/MWh')
+plt.plot([18200,19500],[183.5,183.5],'k--')
+plt.legend(['simple_algo','Mercury'])
+
+print(len(df_daily[df_daily['bool']<6]))
+
+
+
