@@ -44,4 +44,4 @@ This gives an average price of 64.166 $/MWh
 ![](simple2.png)
 
 And 0 days without a full charge!
-![](simple2 periods active.png)
+![](simple2_periods_active.png)
