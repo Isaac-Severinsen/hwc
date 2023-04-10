@@ -14,4 +14,4 @@ the file: `test.py` has:
 
  - A test to determine what a fixed maximum price would be if it varied throughout the year
  
-![](variable_price_test.png)
+![](variable_price_test2.png)
