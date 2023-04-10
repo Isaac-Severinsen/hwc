@@ -31,3 +31,7 @@ The best method would be to identify daily variations and target the lowest pric
 This appears to work well, with good prices paid for the periods active. But the periods active per calendar day vary significantly.
 
 ![](simple_periods_active.png)
+
+A whopping 455 days have less than 6 periods active in that calendar day.
+
+
