@@ -34,4 +34,11 @@ This appears to work well, with good prices paid for the periods active. But the
 
 A whopping 455 days have less than 6 periods active in that calendar day.
 
+Adding a bit more complexity: 
+- If price is in the cheapest 10 of the last 48, then allow
+- If price is < 100 $/MWh then allow
+- if last charge period (30 mins) is more than 21 hours ago or there are less than 6 charge periods in the last 21 hours, then allow
+
+This gives an average price of 64.166 $/MWh, but 0 days without a full charge.
+
 
