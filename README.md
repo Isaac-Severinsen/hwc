@@ -39,7 +39,9 @@ Adding a bit more complexity:
 - If price is < 100 $/MWh then allow
 - if last charge period (30 mins) is more than 21 hours ago or there are less than 6 charge periods in the last 21 hours, then allow
 
-This gives an average price of 64.166 $/MWh, but 0 days without a full charge.
+This gives an average price of 64.166 $/MWh
 
 ![](simple2.png)
+
+And 0 days without a full charge!
 ![](simple2 periods active.png)
